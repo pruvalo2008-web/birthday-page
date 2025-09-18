@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Happy Birthday, Vansika 🎂</title>
+  <style>
+    :root{--bg1:#0f172a;--bg2:#0b1220;--accent:#ff6b81}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial;color:#fff}
+    body{background:linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;padding:16px}
+
+    .card{
+      width:100%;
+      max-width:600px;  /* phone + desktop dono pe centred */
+      background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 10px 40px rgba(2,6,23,0.7);
+      position:relative;
+      overflow:hidden;
+    }
+
+    header{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(90deg,#ff9aa2,#ffdde1);display:flex;align-items:center;justify-content:center;font-weight:700;color:#2b2b2b;font-size:20px}
+    h1{margin:0;font-size:clamp(18px,5vw,26px)}
+    p.lead{margin:6px 0 0;opacity:.9;font-size:clamp(14px,3.5vw,16px)}
+
+    .stage{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+    .left,.right{padding:10px}
+
+    .gift{background:linear-gradient(180deg,#07112411,#0b1830aa);border-radius:12px;padding:16px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .gift .box{width:120px;height:90px;background:linear-gradient(180deg,#fff,#ffe1e8);border-radius:10px;position:relative;cursor:pointer;transform-origin:center;transition:transform .25s}
+    .gift .box:hover{transform:translateY(-6px) rotate(-2deg)}
+    .ribbon{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:100px;height:20px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:12px}
+    .note{margin-top:12px;text-align:center;opacity:.95;font-size:13px}
+
+    .typer{font-size:clamp(14px,3.5vw,18px);line-height:1.4;min-height:60px;margin-top:10px}
+    .small{font-size:12px;opacity:.85}
+
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:14px;min-height:180px}
+    .messages{height:120px;overflow:auto;padding:6px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+    .msg{max-width:80%;padding:8px;border-radius:8px;background:linear-gradient(180deg,#ffffff08,#ffffff03);backdrop-filter:blur(4px)}
+    .msg.me{align-self:flex-end;background:linear-gradient(180deg,#2b6bff22,#2b6bff12)}
+
+    .controls{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    button{cursor:pointer;border:0;padding:8px 12px;border-radius:8px;font-weight:600;font-size:14px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8fb3);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+    /* hearts */
+    .hearts{position:absolute;right:-30px;top:-30px;pointer-events:none}
+    .heart{width:30px;height:30px;background:var(--accent);transform:rotate(-45deg);border-radius:6px 6px 0 0;position:absolute;opacity:.9;animation:float 6s linear infinite}
+    .heart:before,.heart:after{content:'';position:absolute;width:30px;height:30px;border-radius:50%;background:var(--accent)}
+    .heart:before{top:-15px;left:0}
+    .heart:after{left:15px;top:0}
+    @keyframes float{0%{transform:translateY(0) rotate(-45deg) scale(.9);opacity:.9}50%{transform:translateY(-14px) rotate(-45deg) scale(1.05);opacity:1}100%{transform:translateY(0) rotate(-45deg) scale(.9);opacity:.9}}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .2s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-card{width:100%;max-width:460px;background:linear-gradient(180deg,#071127,#07142a);padding:16px;border-radius:12px}
+    .copybox{background:#0b1220;padding:10px;border-radius:8px;font-family:monospace;font-size:13px}
+
+    /* responsive stacking */
+    @media (max-width:640px){
+      .stage{grid-template-columns:1fr}
+      .avatar{width:60px;height:60px;font-size:16px}
+      .gift .box{width:100px;height:75px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="hearts" aria-hidden>
+      <div class="heart" style="left:10px;animation-duration:6s"></div>
+      <div class="heart" style="left:40px;top:30px;animation-duration:7s"></div>
+      <div class="heart" style="left:15px;top:70px;animation-duration:5.5s"></div>
+    </div>
+
+    <header>
+      <div class="avatar">V</div>
+      <div>
+        <h1>Happy Birthday, Vansika 🎉</h1>
+        <p class="lead">Aaj ka din khaas hai — ek chhota sa surprise bas tumhare liye.</p>
+      </div>
+    </header>
+
+    <div class="stage">
+      <div class="left">
+        <div class="gift" aria-hidden>
+          <div class="box" id="giftBtn" title="Click to open the surprise">
+            <div class="ribbon">For Vansika</div>
+          </div>
+          <div class="note">Box pe click karo — ek khatarnak message aur kuch feelings wait kar raha hai.</div>
+        </div>
+        <div class="typer" id="typer">Ek chhota sa note: <strong>"Har din tumhari muskaan dekhna pasand karunga."</strong></div>
+      </div>
+
+      <div class="right">
+        <div class="panel">
+          <div class="messages" id="messages" aria-live="polite">
+            <div class="msg">Hey! Happy Birthday 🎂 — hope your day is full of smiles.</div>
+          </div>
+
+          <div class="controls">
+            <button class="btn-primary" id="revealBtn">Open Gift</button>
+            <button class="btn-ghost" id="copyBtn">Copy Heartfelt Message</button>
+          </div>
+          <div class=kya tum abhi bhi phle jitni pyaari dikhti ho??.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <h3 style="margin-top:0">To: Vansika</h3>
+      <div class="copybox" id="giftText" tabindex="0">
+        "Vansika — tumhari khushi mere liye bahut maayne rakhti hai. Aaj ka din tumhare liye chamkega, aur main hamesha tumhari muskaan ka partner banna chahta hoon. Agar tum chaho, main tumhare saath ek cup coffee pe zaroor milna chahta hoon. Happy Birthday ❤️"
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">
+        <button class="btn-primary" id="whatsappShare">Share on WhatsApp</button>
+        <button class="btn-ghost" id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // typer effect
+    (function(){
+      const texts = [
+        "Tujhe yaad karta hoon — har choti baat yaad aati hai.",
+        "Balay, aaj ka din sirf tera hai. Muskurana na bhoolna.",
+        "Agar kabhi baat karni ho, main yahin hoon — bas ek message door."
+      ];
+      let idx=0, i=0, forward=true;
+      const el = document.getElementById('typer');
+      function step(){
+        const t = texts[idx];
+        if(forward){ i++; el.innerHTML = t.slice(0,i); if(i===t.length){ forward=false; setTimeout(step,1200); return }}
+        else{ i--; el.innerHTML = t.slice(0,i); if(i===0){ forward=true; idx=(idx+1)%texts.length }}
+        setTimeout(step,60)
+      }
+      step();
+    })();
+
+    const modal=document.getElementById('modal');
+    const giftBtn=document.getElementById('giftBtn');
+    const revealBtn=document.getElementById('revealBtn');
+    const closeModal=document.getElementById('closeModal');
+    const messages=document.getElementById('messages');
+    const giftText=document.getElementById('giftText').innerText;
+
+    function addMessage(text,me=false){
+      const d=document.createElement('div');
+      d.className='msg'+(me?' me':'');
+      d.textContent=text;
+      messages.appendChild(d);
+      messages.scrollTop=messages.scrollHeight;
+    }
+
+    function openModal(){modal.classList.add('open');}
+    function closeModalNow(){modal.classList.remove('open');}
+
+    giftBtn.addEventListener('click',()=>{addMessage('Opening a little surprise...');setTimeout(openModal,700);});
+    revealBtn.addEventListener('click',()=>{addMessage('Opening the gift...');setTimeout(openModal,700);});
+    closeModal.addEventListener('click',closeModalNow);
+
+    document.getElementById('copyBtn').addEventListener('click',async()=>{
+      try{await navigator.clipboard.writeText(giftText);addMessage('Message copied to clipboard — personalize it and send ❤️',true)}
+      catch(e){prompt('Copy this message (Ctrl+C then Enter):',giftText)}
+    });
+
+    document.getElementById('whatsappShare').addEventListener('click',()=>{
+      const text=encodeURIComponent(giftText+'\n\n- From someone who cares.');
+      window.open('https://api.whatsapp.com/send?text='+text,'_blank');
+    });
+
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalNow();});
+
+    setTimeout(()=>addMessage('Wishing you a day as lovely as you are 💫'),1200);
+    setTimeout(()=>addMessage('Would love to see you smile today.'),2400);
+  </script>
+</body>
+</html>
